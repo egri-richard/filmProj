@@ -38,4 +38,19 @@ function checkType(){
 function addFilm(nev, hosszPerc) {
     let f = new Film(nev, hosszPerc);
     filmArr.push(f);
+    console.log(f);
+}
+
+function lfFilm() {
+    let sKey = document.getElementById('filmKereso').value;
+
+    for (f of filmArr) {
+        if(sKey.toLowerCase() == f.nev.toLowerCase()) {
+            let tag = document.createElement("p");
+            let film = document.createTextNode(f.toString());
+            tag.appendChild(film);
+            tag.style.borderBottom = "solid black";
+            document.getElementById('searchDiv').appendChild(tag);
+        }
+    }
 }
